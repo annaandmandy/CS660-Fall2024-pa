@@ -5,6 +5,7 @@ using namespace db;
 
 LeafPage::LeafPage(Page &page, const TupleDesc &td, size_t key_index) : td(td), key_index(key_index) {
   // TODO pa2: implement
+  
 }
 
 bool LeafPage::insertTuple(const Tuple &t) {

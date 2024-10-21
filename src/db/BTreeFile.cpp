@@ -12,6 +12,7 @@ BTreeFile::BTreeFile(const std::string &name, const TupleDesc &td, size_t key_in
 
 void BTreeFile::insertTuple(const Tuple &t) {
   // TODO pa2: implement
+  
 }
 
 void BTreeFile::deleteTuple(const Iterator &it) {

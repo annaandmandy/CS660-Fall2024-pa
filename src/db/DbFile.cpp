@@ -30,7 +30,7 @@ DbFile::~DbFile() {
 const std::string &DbFile::getName() const { return name; }
 
 void DbFile::readPage(Page &page, const size_t id) const {
-  reads.push_back(id);
+  reads.push_back(id); // to let lru in the bufferpool know which to evict
   pread(fd, page.data(), DEFAULT_PAGE_SIZE, id * DEFAULT_PAGE_SIZE);
 }
 
