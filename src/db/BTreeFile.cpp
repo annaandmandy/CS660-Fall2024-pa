@@ -12,17 +12,7 @@ BTreeFile::BTreeFile(const std::string &name, const TupleDesc &td, size_t key_in
 
 void BTreeFile::insertTuple(const Tuple &t) {
   // TODO pa2: implement
-  BufferPool &bufferPool = getDatabase().getBufferPool();
-  PageId pid;
-  pid.file = name;
-  pid.page = root_id;
-  Page page = bufferPool.getPage(pid);
-  std::vector<int> path_way;
-  path_way.push_back(root_id);
-  IndexPage ip(page);
-  while(ip.header->index_children == false){
-
-  }
+ 
 
 }
 
