@@ -38,14 +38,13 @@ Iterator BTreeFile::begin() const {
   if(ip.header->size == 0){
     return {*this, numPages, 0};
   }
-  if(ip.header->index_children == true){
-    
+  while(ip.header->index_children == false){
+    pid.page = ip.children[0];
+    Page firstPage = bufferPool.getPage(pid);
+    IndexPage ip(firstPage);
   }
 
-  
-
-  
-  return {*this, numPages-1, 0};
+  return {*this, pid.page, 0};
 }
 
 Iterator BTreeFile::end() const {
