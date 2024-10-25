@@ -5,7 +5,7 @@ using namespace db;
 
 IndexPage::IndexPage(Page &page) {
   // TODO pa2: implement
-  capacity = (DEFAULT_PAGE_SIZE - sizeof(IndexPageHeader) - sizeof(uint16_t))/(sizeof(int)+sizeof(size_t));
+  capacity = (DEFAULT_PAGE_SIZE - sizeof(IndexPageHeader))/(sizeof(int)+sizeof(size_t)) - 1;
   header = new IndexPageHeader;
   header->size = 0;
   keys = new int[capacity];

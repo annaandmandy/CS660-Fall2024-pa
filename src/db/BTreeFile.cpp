@@ -29,8 +29,21 @@ void BTreeFile::next(Iterator &it) const {
 
 Iterator BTreeFile::begin() const {
   // TODO pa2: implement
+  /*
+  BufferPool &bufferPool = getDatabase().getBufferPool();
+  size_t page = root_id;
+  PageId pid;
+  pid.file = name;
+  pid.page = page;
+  Page p = bufferPool.getPage(pid);
+  IndexPage ip(p);
+  ip.header->index_children
+  return {*this, ip.keys[0], 0};
+  */
+  // return {*this, numPages, 0};
 }
 
 Iterator BTreeFile::end() const {
   // TODO pa2: implement
+  return {*this, numPages, 0};
 }
