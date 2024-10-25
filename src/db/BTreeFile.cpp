@@ -13,6 +13,17 @@ BTreeFile::BTreeFile(const std::string &name, const TupleDesc &td, size_t key_in
 void BTreeFile::insertTuple(const Tuple &t) {
   // TODO pa2: implement
   BufferPool &bufferPool = getDatabase().getBufferPool();
+  PageId pid;
+  pid.file = name;
+  pid.page = root_id;
+  Page page = bufferPool.getPage(pid);
+  std::vector<int> path_way;
+  path_way.push_back(root_id);
+  IndexPage ip(page);
+  while(ip.header->index_children == false){
+
+  }
+
 }
 
 void BTreeFile::deleteTuple(const Iterator &it) {
@@ -43,6 +54,9 @@ Iterator BTreeFile::begin() const {
     Page firstPage = bufferPool.getPage(pid);
     IndexPage ip(firstPage);
   }
+  Page firstPage = bufferPool.getPage(pid);
+  LeafPage lp(firstPage,td,key_index);
+  
 
   return {*this, pid.page, 0};
 }
