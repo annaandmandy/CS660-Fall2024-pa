@@ -9,6 +9,11 @@ namespace db {
  */
 class ColumnStats {
   // TODO pa4: add private members
+  unsigned buckets;
+  int min;
+  int max;
+  std::unordered_map<int, size_t> nums;
+  int bucket_length;
 
 public:
   /**
